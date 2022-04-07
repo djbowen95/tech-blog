@@ -3,18 +3,22 @@ const sequelize = require("../config/connection");
 
 class Comment extends Model {}
 
-Comment.init({
+Comment.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true, 
-     },
-    content: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    sequelize,  
-})
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    sequelize: sequelize,
+  }
+);
 
 module.exports = Comment;
